@@ -1,0 +1,29 @@
+package com.flipkart.PageObjects;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+
+public class HomePage {
+
+	@FindBy(name = "q")
+	private WebElement searchBox;
+
+	@FindBy(xpath = "//input[@type = 'submit'][@value= 'Search']")
+	private WebElement searchButton;
+
+	public boolean searchItem(String text) {
+		try {
+			searchBox.clear();
+			searchBox.sendKeys(text);
+			searchButton.click();
+		} catch (Exception e) {
+			return false;
+		}
+		
+		return true;
+		
+	}
+	
+	
+}
